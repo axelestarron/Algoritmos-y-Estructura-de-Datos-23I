@@ -10,7 +10,6 @@ public class multiplos5Rango{
     input1.close();
     input2.close();
     //aqui va a ir el metodo de imprimir los números
-    listaMultiplosDe5(limiteInferior, limiteSuperior);
     }
     
     public static void listaMultiplosDe5(int limiteInferior,int limiteSuperior){
