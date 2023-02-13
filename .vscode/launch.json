@@ -1,0 +1,42 @@
+{
+    // Use IntelliSense para saber los atributos posibles.
+    // Mantenga el puntero para ver las descripciones de los existentes atributos.
+    // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch multiplos5Rango",
+            "request": "launch",
+            "mainClass": "multiplos5Rango",
+            "projectName": "Algoritmos-y-Estructura-de-Datos-23I_de8db715"
+        },
+        {
+            "type": "java",
+            "name": "Launch papa",
+            "request": "launch",
+            "mainClass": "papa",
+            "projectName": "Algoritmos-y-Estructura-de-Datos-23I_de8db715"
+        },
+        {
+            "type": "java",
+            "name": "Launch pruebaNumeroPrimo",
+            "request": "launch",
+            "mainClass": "pruebaNumeroPrimo",
+            "projectName": "Algoritmos-y-Estructura-de-Datos-23I_de8db715"
+        },
+        {
+            "type": "java",
+            "name": "Launch pruebaNumeroPrimoGeneral",
+            "request": "launch",
+            "mainClass": "pruebaNumeroPrimoGeneral",
+            "projectName": "Algoritmos-y-Estructura-de-Datos-23I_de8db715"
+        }
+    ]
+}
