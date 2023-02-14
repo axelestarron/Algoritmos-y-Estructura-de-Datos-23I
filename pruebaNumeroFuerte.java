@@ -16,6 +16,7 @@ public class pruebaNumeroFuerte {
             }
         } while (condicionInicio == false);
         procesoPrueba(numero);
+        input1.close();
     }
 
     public static void procesoPrueba(int a){
