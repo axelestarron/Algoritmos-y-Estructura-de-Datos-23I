@@ -23,7 +23,6 @@ public class pruebaNumeroPrimoGeneral{
     //declaración del método para probar si la entrada es un primo
     public static void procesoPrueba(int a){
         boolean valorPrueba=true; //condición para el ciclo while
-        int restoDivisionPrima;   
         int contador=2;           //contador para el ciclo while
         switch (a){
             case 1: a=1;
