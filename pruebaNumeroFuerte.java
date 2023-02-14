@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class pruebaNumeroFuerte {
-    public static void main() {
+    public static void main(String[] args) {
         Scanner input1 = new Scanner(System.in);
         System.out.println(
                 "Este programa prueba si un numero es fuerte; es decir, que la suma de sus factoriales es el numero.");
