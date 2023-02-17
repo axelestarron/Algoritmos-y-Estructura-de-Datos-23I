@@ -20,6 +20,17 @@ public class racional{
         result.den=den*R.den;
         return result;
     }
+    @Override
+    public String toString(){
+        return num+"/"+den;
+    }
+
+    public static racional resta(racional a, racional b){
+        racional result=new racional();
+        result.num=a.num*b.den-b.num*a.den;
+        result.den=a.den*b.den;
+        return result;
+    }
 
     public static void main(String[] args) {
         Scanner input1=new Scanner(System.in);
@@ -35,7 +46,7 @@ public class racional{
         System.out.print("\n");
         racional fraccionSumada=new racional(1,2);
         racional result=fraccionPrueba.suma(fraccionSumada);
-        System.out.println("El resultado es: "+result.num+"/"+result.den);
+        System.out.println(result.toString());
         input1.close();
     }
 }  
