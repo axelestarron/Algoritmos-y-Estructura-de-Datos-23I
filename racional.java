@@ -23,9 +23,12 @@ public class racional{
 
     public static void main(String[] args) {
         Scanner input1=new Scanner(System.in);
+
         racional fraccionPrueba=new racional();
+
         System.out.println("Prueba de suma.");
         System.out.print("Numerador:");
+        
         fraccionPrueba.num=input1.nextInt();
         System.out.print("\n Denominador:");
         fraccionPrueba.den=input1.nextInt();
