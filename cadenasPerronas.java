@@ -56,8 +56,30 @@ public class cadenasPerronas {
         }
         input1.close();
     }
+//Ejemplo de arreglo como dato primitivo
+    public static void sumaElementosArreglo(){
+        Scanner input1=new Scanner(System.in);
+        System.out.println("Escriba cuantos elementos va a introducir en el arreglo");
+        int capacidadArreglo=input1.nextInt();
+        int miArreglo[]=new int[capacidadArreglo];
+
+        System.out.println("Introduzca los elementos del arreglo.");
+        for (int i=0;i<capacidadArreglo;i++){
+            System.out.println("Elemento "+ (i+1));
+            miArreglo[i]=input1.nextInt();
+        }
+
+        int result=0;
+        for (int i=0;i<capacidadArreglo;i++){
+            result=result+miArreglo[i];
+        }
+
+        System.out.println("La suma de los elementos es: "+result);
+        
+        
+    }
 
     public static void main(String[] args){
-        divisorLexico();       
+       sumaElementosArreglo();
     }
 }
