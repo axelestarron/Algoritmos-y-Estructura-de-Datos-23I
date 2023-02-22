@@ -75,7 +75,7 @@ public class cadenasPerronas {
         }
 
         System.out.println("La suma de los elementos es: "+result);
-        
+        input1.close();
         
     }
 
