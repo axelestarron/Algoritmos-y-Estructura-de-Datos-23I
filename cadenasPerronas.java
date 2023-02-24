@@ -59,18 +59,18 @@ public class cadenasPerronas {
 //Ejemplo de arreglo como dato primitivo
     public static void sumaElementosArreglo(){
         Scanner input1=new Scanner(System.in);
-        System.out.println("Escriba cuantos elementos va a introducir en el arreglo");
+        System.out.print("Escriba cuantos elementos va a introducir en el arreglo: ");
         int capacidadArreglo=input1.nextInt();
         int miArreglo[]=new int[capacidadArreglo];
 
-        System.out.println("Introduzca los elementos del arreglo.");
-        for (int i=0;i<capacidadArreglo;i++){
-            System.out.println("Elemento "+ (i+1));
+        System.out.println("\n"+"Introduzca los elementos del arreglo.");
+        for (int i=0;i<miArreglo.length;i++){
+            System.out.print("Elemento "+ (i+1)+": ");
             miArreglo[i]=input1.nextInt();
         }
 
         int result=0;
-        for (int i=0;i<capacidadArreglo;i++){
+        for (int i=0;i<miArreglo.length;i++){
             result=result+miArreglo[i];
         }
 
