@@ -71,6 +71,21 @@ public class EjemploArreglo {
        return prom;
     }
 
+    public void insertSort(){
+        int min, temp;
+        for (int i=0;i<(this.miArreglo.length -1);i++){
+            min=i;
+            for (int j=i+1;j<this.miArreglo.length;j++){
+                if (this.miArreglo[j]<this.miArreglo[min]){
+                    min=j;
+                }
+            }
+            temp=this.miArreglo[min];
+            this.miArreglo[min]=this.miArreglo[i];
+            this.miArreglo[i]=temp;
+        }
+    }
+
     @Override
     public String toString(){
         String result=new String("{"+ this.miArreglo[0]);
@@ -80,15 +95,18 @@ public class EjemploArreglo {
         result=result.concat("}");
         return result;
     }
+
 //el main 
     public static void main(String[] arg){
-        int a[]={1,2,3,4,5};
-        EjemploArreglo abominacion=new EjemploArreglo(a);
-        System.out.println(abominacion.toString());
-        System.out.println("La suma de los elementos del arreglo es: "+ abominacion.suma());
-        System.out.println("El máximo de su arreglo es: "+ abominacion.maximo() + ", en el indice: " + abominacion.posMaximo());
-        System.out.println("El valor medio es: " + abominacion.valorMedio() + ", en el indice: " + abominacion.miArreglo.length /2);
-        System.out.println("El promedio de su arreglo es: "+ abominacion.promedio()); 
+        int a[]={2,1,2,4,3};
+        EjemploArreglo mikeWazowski=new EjemploArreglo(a);
+        //System.out.println(abominacion.toString());
+        //System.out.println("La suma de los elementos del arreglo es: "+ abominacion.suma());
+        //System.out.println("El máximo de su arreglo es: "+ abominacion.maximo() + ", en el indice: " + abominacion.posMaximo());
+        //System.out.println("El valor medio es: " + abominacion.valorMedio() + ", en el indice: " + abominacion.miArreglo.length /2);
+        //System.out.println("El promedio de su arreglo es: "+ abominacion.promedio()); 
+        mikeWazowski.insertSort();
+        System.out.println("El arreglo ordenado es: "+mikeWazowski.toString());
     }
 }
  
