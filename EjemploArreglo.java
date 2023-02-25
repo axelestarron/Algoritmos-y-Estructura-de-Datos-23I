@@ -127,21 +127,69 @@ public class EjemploArreglo {
         return miArreglo.length / 2;
     }
 
+    public float mediana(){
+        float mediana=0;
+        EjemploArreglo ordenado=new EjemploArreglo(this.miArreglo);
+        ordenado.insertSort();
+        if (ordenado.miArreglo.length%2!=0){
+            mediana=ordenado.miArreglo[ordenado.posMedio()];
+        }else{
+            mediana=ordenado.miArreglo[ordenado.posMedio()]+ordenado.miArreglo[ordenado.posMedio()-1];
+            mediana=mediana/2;
+        }
+        return mediana;
+    }
+
+    public void moda(){
+        //int moda=0;
+        int contadorDistinto=1;
+        EjemploArreglo ordenado=new EjemploArreglo(this.miArreglo);
+        ordenado.insertSort();
+        //contador de cuantos números distintos hay
+        for (int i=1;i<ordenado.miArreglo.length;i++){
+            if(ordenado.miArreglo[i]!=ordenado.miArreglo[i-1]){
+                contadorDistinto++;
+            }
+        }
+        //conteo de cuantas veces aparece cada número
+        int conteoNumeros[]=new int[contadorDistinto];
+        int valorNumeros[]=new int[contadorDistinto];
+        int actual=0;
+        valorNumeros[0]=ordenado.miArreglo[0];
+        conteoNumeros[0]=1;
+        for (int i=1;i<ordenado.miArreglo.length;i++){
+            if(ordenado.miArreglo[i]==ordenado.miArreglo[i-1]){
+                ++conteoNumeros[actual];
+            }else{
+                ++actual;
+                valorNumeros[actual]=ordenado.miArreglo[i];
+                conteoNumeros[actual]=1;
+            }
+        }
+        //imprimir las modas
+        EjemploArreglo objetoConteoNumeros=new EjemploArreglo(conteoNumeros);
+        for(int i=0;i<conteoNumeros.length; i++){
+            if(objetoConteoNumeros.maximo()==conteoNumeros[i]){
+                System.out.println(""+valorNumeros[i]);
+            }
+        }
+    }
     // el main
     public static void main(String[] arg) {
-        int a[] = { 2, 1, 2, 4, 1 };
+        int a[] = {4,7,9,0,4,6,9,0,0,4,3};
         EjemploArreglo mikeWazowski = new EjemploArreglo(a);
         // System.out.println(abominacion.toString());
         // System.out.println("La suma de los elementos del arreglo es: "+
         // abominacion.suma());
         // System.out.println("El máximo de su arreglo es: "+ abominacion.maximo() + ",
         // en el indice: " + abominacion.posMaximo());
-        // System.out.println("El valor medio es: " + abominacion.valorMedio() + ", en
-        // el indice: " + abominacion.miArreglo.length /2);
+        //System.out.println("El valor medio es: " + mikeWazowski.valorMedio() + ", en el indice: " + mikeWazowski.miArreglo.length /2);
         // System.out.println("El promedio de su arreglo es: "+ abominacion.promedio());
         // mikeWazowski.insertSort();
         // System.out.println("El arreglo ordenado es: "+mikeWazowski.toString());
         System.out.println(
                 "El mínimo de su arreglo es: " + mikeWazowski.minimo() + " en el índice: " + mikeWazowski.posMinimo());
+        System.out.println("La mediana de su arreglo es: "+mikeWazowski.mediana()); 
+        mikeWazowski.moda();       
     }
 }
