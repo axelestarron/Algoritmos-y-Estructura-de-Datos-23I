@@ -45,7 +45,7 @@ public class EjemploArreglo {
 
     public double promedio() {
         double prom = this.suma();
-        prom = prom / 2;
+        prom = prom / this.miArreglo.length;
         return prom;
     }
 
