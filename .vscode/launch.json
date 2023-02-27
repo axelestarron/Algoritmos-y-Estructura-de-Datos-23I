@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "Algoritmos-y-Estructura-de-Datos-23I_de8db715"
+        },
+        {
+            "type": "java",
+            "name": "Launch pruebaBiciesto",
+            "request": "launch",
+            "mainClass": "pruebaBiciesto",
+            "projectName": "Algoritmos-y-Estructura-de-Datos-23I_de8db715"
+        },
+        {
+            "type": "java",
+            "name": "Launch estrellitas",
+            "request": "launch",
+            "mainClass": "estrellitas",
+            "projectName": "Algoritmos-y-Estructura-de-Datos-23I_de8db715"
+        },
+        {
+            "type": "java",
             "name": "Launch EjemploArreglo",
             "request": "launch",
             "mainClass": "EjemploArreglo",
