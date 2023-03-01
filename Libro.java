@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.StringTokenizer;
 public class Libro{
     String titulo;
     String autor;
@@ -13,6 +14,35 @@ public class Libro{
         System.out.println("Escriba la clave de su libro: ");
         clave=input1.nextInt();
         input1.close();
+    }
+
+    Libro(Object o){
+        String cadena=(String)o;
+        StringTokenizer st=new StringTokenizer(cadena,",");
+        titulo=st.nextToken();
+        autor=st.nextToken();
+        clave=Integer.valueOf(st.nextToken().trim());
+    }
+
+    Libro(String entryTitulo, String entryAutor, int entryClave){
+        titulo=entryTitulo;
+        autor=entryAutor;
+        clave=entryClave;
+    }
+
+    public object clone(){
+        return new Libro(this.titulo,this.autor,this.clave);
+    }
+
+    @Override
+    public String toString(){
+        return "Titulo: " +this.titulo+" Autor: "+this.autor+" Clave: "+this.clave;
+    }
+
+    public boolean equals(Object o){
+        if(o==null) return false;
+        if(o==this) return true;
+        if(this.getclass()!=o.getClass()) return false;
     }
 
 
