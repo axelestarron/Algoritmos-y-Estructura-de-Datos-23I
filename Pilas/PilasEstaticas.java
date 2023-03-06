@@ -1,7 +1,7 @@
 package Pilas;
 public class PilasEstaticas{
-    private int tope;
-    private Object[] info;
+    public int tope;
+    public Object[] info;
 
     PilasEstaticas(int a){
         tope=-1;
@@ -54,9 +54,9 @@ public class PilasEstaticas{
             String miTexto=new String("");
             for(int i=tope;i>=0;i--){
                 if(i==tope){
-                    miTexto=miTexto+info[i];
+                    miTexto=miTexto+info[i].toString();
                 }else{
-                    miTexto=miTexto+", "+info[i];
+                    miTexto=miTexto+", "+info[i].toString();
                 }
             }
             return miTexto;

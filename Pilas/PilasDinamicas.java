@@ -31,7 +31,7 @@ public class PilasDinamicas {
     //access method
     Object valTope(){
         if(tope==null){
-            System.out.println("Error, la pila está vacia");
+            System.out.println("La pila está vacia");
             return tope;
         }else{
             return tope.info;
