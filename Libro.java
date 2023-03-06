@@ -30,7 +30,7 @@ public class Libro{
         clave=entryClave;
     }
 
-    public object clone(){
+    public Object clone(){
         return new Libro(this.titulo,this.autor,this.clave);
     }
 
@@ -42,7 +42,8 @@ public class Libro{
     public boolean equals(Object o){
         if(o==null) return false;
         if(o==this) return true;
-        if(this.getclass()!=o.getClass()) return false;
+        if(this.getClass()!=o.getClass()) return false;
+        return false;
     }
 
 

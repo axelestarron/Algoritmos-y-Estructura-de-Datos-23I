@@ -1,3 +1,4 @@
+package Pilas;
 public class PilasEstaticas{
     private int tope;
     private Object[] info;

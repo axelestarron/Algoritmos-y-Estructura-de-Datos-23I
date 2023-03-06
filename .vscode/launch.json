@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TareaComplejos",
+            "request": "launch",
+            "mainClass": "Tareas.TareaComplejos",
+            "projectName": "Algoritmos-y-Estructura-de-Datos-23I_de8db715"
+        },
+        {
+            "type": "java",
+            "name": "UsuarioComplejos",
+            "request": "launch",
+            "mainClass": "Tareas.UsuarioComplejos",
+            "projectName": "Algoritmos-y-Estructura-de-Datos-23I_de8db715"
+        },
+        {
+            "type": "java",
             "name": "TareaArreglos",
             "request": "launch",
             "mainClass": "TareaArreglos",

@@ -1,13 +1,14 @@
+package Pilas;
 public class Nodo {
-    Object info;
-    Nodo liga;
+    public Object info;
+    public Nodo liga;
     //Constructor primer nodo
-    Nodo(Object datos){
+    public Nodo(Object datos){
         info=datos;
         liga=null;
     }
     //Constructor nodos concatenados
-    Nodo(Object datos,Nodo anterior){
+    public Nodo(Object datos,Nodo anterior){
         info=datos;
         liga=anterior;
     }
