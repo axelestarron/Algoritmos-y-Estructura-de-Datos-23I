@@ -47,6 +47,26 @@ public class TareaArreglos {
         }
     }
 
+    public static String[] stringSort(String[] a){
+        String[] arregloStrings=a;
+        int min; 
+        String temp;
+        for (int i = 0; i < (arregloStrings.length - 1); i++) {
+            min = i;
+
+            for (int j = i + 1; j < arregloStrings.length; j++) {
+                if (arregloStrings[j].compareTo(arregloStrings[min])<0) {
+                    min = j;
+                }
+            }
+
+            temp = arregloStrings[min];
+            arregloStrings[min] = arregloStrings[i];
+            arregloStrings[i] = temp;
+        }
+        return arregloStrings;
+    }
+
     public static String fileReader(String source){
         try {
             File myFile=new File(source);
@@ -160,6 +180,8 @@ public class TareaArreglos {
         TareaArreglos ejercicio1b=new TareaArreglos(b);
         ejercicio1b.insertSort();
         System.out.println(ejercicio1b.toString());
+        //Ejercicio 1.c
+        
         //Ejercicio 2.a
         int[] prueba={-1,3,5,7,11,-44,-67,-11,0,1,0,7,0,99};
         TareaArreglos chuerk=new TareaArreglos(prueba);
