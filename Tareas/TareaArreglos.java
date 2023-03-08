@@ -26,6 +26,18 @@ public class TareaArreglos {
         entradaArreglo.close();
     }
 
+    TareaArreglos(int tamaño) {
+        Scanner entradaArreglo = new Scanner(System.in);
+        miArreglo = new int[tamaño];
+        System.out.println("\n" + "Introduzca los elementos del arreglo.");
+
+        for (int i = 0; i < miArreglo.length; i++) {
+            System.out.print("Elemento " + (i + 1) + ": ");
+            miArreglo[i] = entradaArreglo.nextInt();
+        }
+        entradaArreglo.close();
+    }
+
     TareaArreglos(int a[]) {
         this.miArreglo = a;
     }
@@ -168,31 +180,59 @@ public class TareaArreglos {
         }
         this.miArreglo=resultado; 
     }
-    public static void main(String[] arg){
-        //Ejercicio 1.a
-        int[] a={4,8,6,2,5};
-        TareaArreglos ejercicio1a=new TareaArreglos(a);
-        ejercicio1a.insertSort();
-        System.out.println(ejercicio1a.toString());}
 
-        //Ejercicio 1.b
-        String listaDeNumeros=new String(fileReader("numeros.txt"));
-        int[] b=string2IntArray(listaDeNumeros);
-        TareaArreglos ejercicio1b=new TareaArreglos(b);
-        ejercicio1b.insertSort();
-        System.out.println(ejercicio1b.toString());
-
-        //Ejercicio 1.c
-        String[] arregloCadenas={"Hola","Adios", "Gracias", "Denada", "Por Favor", "Algoritmo", "Java", "Programación","Axel","Naomi"};
-        arregloCadenas=stringSort(arregloCadenas);
-        for(int i=0;i<10;i++){
-            System.out.println(arregloCadenas[i]);
+    public static void ejercicio1(int selector){
+        switch(selector){
+            case 1:
+                //Ejercicio 1.a
+                int[] a={4,8,6,2,5};
+                TareaArreglos ejercicio1a=new TareaArreglos(a);
+                ejercicio1a.insertSort();
+                System.out.println(ejercicio1a.toString());
+                break;
+            case 2:
+                //Ejercicio 1.b
+                String listaDeNumeros=new String(fileReader("numeros.txt"));
+                int[] b=string2IntArray(listaDeNumeros);
+                TareaArreglos ejercicio1b=new TareaArreglos(b);
+                ejercicio1b.insertSort();
+                System.out.println(ejercicio1b.toString());
+                break;
+            case 3:
+                //Ejercicio 1.c
+                String[] arregloCadenas={"Hola","Adios", "Gracias", "Denada", "Por Favor", "Algoritmo", "Java", "Programación","Axel","Naomi"};
+                arregloCadenas=stringSort(arregloCadenas);
+                for(int i=0;i<10;i++){
+                    System.out.println(arregloCadenas[i]);
+                }
+                break;
         }
+    }
 
-        //Ejercicio 2.a
-        int[] prueba={-1,3,5,7,11,-44,-67,-11,0,1,0,7,0,99};
-        TareaArreglos chuerk=new TareaArreglos(prueba);
-        chuerk.onlyEvenOrOdd(1);
-        System.out.println(chuerk.toString());
+    public static void ejercicio2(int selector){
+        System.out.println("Este programa proporciona el número de elementos pares, impares, positivos, negativos, nulos (0) y positivos pares de un arreglo de "+selector+" elementos.");
+        TareaArreglos numEntry=new TareaArreglos(selector);
+        TareaArreglos pares=numEntry;
+        pares.onlyEvenOrOdd(0);
+        System.out.println("Se tienen "+pares.miArreglo.length+" numeros pares: "+pares.toString());
+        TareaArreglos impares=numEntry;
+        impares.onlyEvenOrOdd(1);
+        System.out.println("Se tienen "+impares.miArreglo.length+" numeros impares: "+impares.toString());
+        TareaArreglos positivos=numEntry;
+        positivos.onlyThisSign(1);
+        System.out.println("Se tienen "+positivos.miArreglo.length+" numeros positivos: "+positivos.toString());
+        TareaArreglos negativos=numEntry;
+        negativos.onlyThisSign(-1);
+        System.out.println("Se tienen "+negativos.miArreglo.length+" numeros negativos: "+negativos.toString());
+        TareaArreglos ceros=numEntry;
+        ceros.onlyThisSign(0);
+        System.out.println("Se tienen "+ceros.miArreglo.length+" ceros.");
+        pares.onlyThisSign(1);
+        System.out.println("Se tienen "+pares.miArreglo.length+" numeros positivos pares: "+pares.toString());
+    }
+    
+    public static void main(String[] arg){
+        ejercicio2(5);
     }
 }
+
