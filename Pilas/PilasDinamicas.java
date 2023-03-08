@@ -37,4 +37,20 @@ public class PilasDinamicas {
             return tope.info;
         }
     }
+    @Override
+    public String toString(){
+        if(this.vacia()){
+            return "La pila está vacia";
+        }else{
+            PilasDinamicas copia=new PilasDinamicas();
+            copia.tope=this.tope.copiaDe();
+            String texto="";
+            int i=0;
+            do{
+                texto+="Nodo[n-"+ i++ +"] :"+copia.pop();
+            }while(!this.vacia());
+            return texto;
+        }
+        
+    }
 }

@@ -23,6 +23,14 @@ public class Nodo {
             return false;
         }
     }
+    //Copy
+    public Nodo copiaDe(){
+        Nodo copia=new Nodo(this.info,this.liga);
+        return copia;
+    }
     
-    
+    @Override
+    public String toString(){
+        return "Nodo [Info: "+this.info+", Liga: "+this.liga+"]";
+    }
 }
