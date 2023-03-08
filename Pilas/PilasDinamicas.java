@@ -1,4 +1,5 @@
 package Pilas;
+
 public class PilasDinamicas {
     Nodo tope;
     //constructor de pila vacia
@@ -47,10 +48,18 @@ public class PilasDinamicas {
             String texto="";
             int i=0;
             do{
-                texto+="Nodo[n-"+ i++ +"] :"+copia.pop();
-            }while(!this.vacia());
+                texto+="Nodo[n-"+ i++ +"] :"+copia.pop()+"\n";
+            }while(copia.vacia()==false);
             return texto;
         }
         
+    }
+
+    public static void main(String[] arg){
+        PilasDinamicas miPila=new PilasDinamicas();
+        miPila.insertar(10);
+        miPila.insertar(new String("Hola"));
+        miPila.insertar(new String("adios"));
+        System.out.println(miPila.toString());
     }
 }

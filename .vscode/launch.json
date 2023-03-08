@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "PilasDinamicas",
+            "request": "launch",
+            "mainClass": "Pilas.PilasDinamicas",
+            "projectName": "Algoritmos-y-Estructura-de-Datos-23I_de8db715"
+        },
+        {
+            "type": "java",
             "name": "TareaArreglos",
             "request": "launch",
             "mainClass": "Tareas.TareaArreglos",
