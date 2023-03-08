@@ -15,32 +15,31 @@ public class TareaArreglos {
     // funciones que permitan
     // determinar: a)# positivos b) # negativos, c) #pares, d)#impares e) # de
     // ceros, f)# positivos pares
+    Scanner entradaArreglo = new Scanner(System.in);
     int miArreglo[];
 
     TareaArreglos() {
-        Scanner entradaArreglo = new Scanner(System.in);
+
         System.out.print("Introduzca el tamaño de su arreglo: ");
         int capacidad = entradaArreglo.nextInt();
-        miArreglo = new int[capacidad];
+        this.miArreglo = new int[capacidad];
 
         System.out.println("\n" + "Introduzca los elementos del arreglo.");
-        for (int i = 0; i < miArreglo.length; i++) {
+        for (int i = 0; i < this.miArreglo.length; i++) {
             System.out.print("Elemento " + (i + 1) + ": ");
-            miArreglo[i] = entradaArreglo.nextInt();
+            this.miArreglo[i] = entradaArreglo.nextInt();
         }
-        entradaArreglo.close();
     }
 
     TareaArreglos(int tamaño) {
         Scanner entradaArreglo = new Scanner(System.in);
-        miArreglo = new int[tamaño];
+        this.miArreglo = new int[tamaño];
         System.out.println("\n" + "Introduzca los elementos del arreglo.");
 
-        for (int i = 0; i < miArreglo.length; i++) {
+        for (int i = 0; i < this.miArreglo.length; i++) {
             System.out.print("Elemento " + (i + 1) + ": ");
-            miArreglo[i] = entradaArreglo.nextInt();
+            this.miArreglo[i] = entradaArreglo.nextInt();
         }
-        entradaArreglo.close();
     }
 
     TareaArreglos(int a[]) {
@@ -113,7 +112,7 @@ public class TareaArreglos {
 
     @Override
     public String toString() {
-        if (miArreglo.length > 1) {
+        if (miArreglo.length > 0) {
             String result = new String("{" + this.miArreglo[0]);
             for (int i = 1; i < this.miArreglo.length; i++) {
                 result = result.concat("," + this.miArreglo[i]);
@@ -167,7 +166,7 @@ public class TareaArreglos {
         switch (mod) {
             case 1:
                 for (int i = 0; i < this.miArreglo.length; i++) {
-                    if (this.miArreglo[i] % 2 == 1) {
+                    if (this.miArreglo[i] % 2 != 0) {
                         seleccionados[contador] = this.miArreglo[i];
                         contador++;
                     }
@@ -193,24 +192,33 @@ public class TareaArreglos {
         switch (selector) {
             case 'a':
                 // Ejercicio 1.a
+                System.out.println("\n 1.a) Ordene el arreglo 4,8,6,2,5.");
                 int[] a = { 4, 8, 6, 2, 5 };
                 TareaArreglos ejercicio1a = new TareaArreglos(a);
                 ejercicio1a.insertSort();
-                System.out.println(ejercicio1a.toString());
+                System.out.println("El arreglo ordenado es: " + ejercicio1a.toString());
                 break;
             case 'b':
                 // Ejercicio 1.b
+                System.out.println("\n 1.b) Cree un archivo de 30 números aleatorios y ordenelo.");
                 String listaDeNumeros = new String(fileReader("numeros.txt"));
                 int[] b = string2IntArray(listaDeNumeros);
                 TareaArreglos ejercicio1b = new TareaArreglos(b);
-                ejercicio1b.insertSort();
+                System.out.println("Se leyó el archivo numeros.txt y se obtuvo el siguiente arreglo:");
                 System.out.println(ejercicio1b.toString());
+                ejercicio1b.insertSort();
+                System.out.println("El arreglo ordenado es:\n" + ejercicio1b.toString());
                 break;
             case 'c':
                 // Ejercicio 1.c
+                System.out.println("\n 1.c) Se van a ordenar las siguientes cadenas en orden lexicográfico: ");
                 String[] arregloCadenas = { "Hola", "Adios", "Gracias", "Denada", "Por Favor", "Algoritmo", "Java",
                         "Programación", "Axel", "Naomi" };
+                for (int i = 0; i < arregloCadenas.length; i++) {
+                    System.out.println(arregloCadenas[i]);
+                }
                 arregloCadenas = stringSort(arregloCadenas);
+                System.out.println("\n La lista de cadenas ordenadas es: ");
                 for (int i = 0; i < 10; i++) {
                     System.out.println(arregloCadenas[i]);
                 }
@@ -220,8 +228,8 @@ public class TareaArreglos {
 
     public static void ejercicio2(int selector) {
         System.out.println(
-                "Este programa proporciona el número de elementos pares, impares, positivos, negativos, nulos (0) y positivos pares de un arreglo de "
-                        + selector + " elementos.");
+                "\n Este programa proporciona el número de elementos pares, impares, positivos, negativos, nulos (0) y positivos pares de un arreglo de "
+                        + selector + " elementos. ");
         TareaArreglos entryNum = new TareaArreglos(selector);
         int[] aux;
         // Pares
@@ -240,7 +248,7 @@ public class TareaArreglos {
         aux = entryNum.onlyThisSign(0);
         System.out.println("Se tienen " + aux.length + " ceros.");
         // pares positivos
-        aux = new TareaArreglos(entryNum.onlyEvenOrOdd(1)).onlyThisSign(1);
+        aux = new TareaArreglos(entryNum.onlyEvenOrOdd(0)).onlyThisSign(1);
         System.out
                 .println("Se tienen " + aux.length + " numeros pares positivos: " + new TareaArreglos(aux).toString());
     }
@@ -249,6 +257,7 @@ public class TareaArreglos {
         ejercicio1('a');
         ejercicio1('b');
         ejercicio1('c');
+        System.out.print("\n2) ");
         ejercicio2(5);
         ejercicio2(10);
         ejercicio2(15);
