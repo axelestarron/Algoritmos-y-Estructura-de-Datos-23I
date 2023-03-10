@@ -1,3 +1,4 @@
+package Principal;
 import java.util.Scanner;
 public class pruebaBiciesto {
     public static void main(String[] args){
