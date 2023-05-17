@@ -1,8 +1,8 @@
 package Pilas;
 import Pilas.Nodo;
 
-public class Filas{
-    Nodo ultimo=new Nodo();
+public class Filas<T>{
+    Nodo<T> ultimo=new Nodo();
 //Constructor
     Fila(){
         ultimo=null;
@@ -12,7 +12,7 @@ public class Filas{
         return this.ultimo==null;
     }
 //Insertar
-    void enqueue(Object nuevoObjeto){
+    void enqueue(T nuevoObjeto){
         if(this.vacio()){
             this.ultimo=new Nodo(nuevoObjeto,null);
             this.ultimo.liga=this.ultimo;
@@ -27,7 +27,7 @@ public class Filas{
         if(this.vacio()){
             system.print.out("Error, la fila esta vacia");
         }else{
-            Nodo frente=this.ultimo.liga;
+            Nodo<T> frente=this.ultimo.liga;
             if(frente==this.ultimo){
                 this.ultimo=null;
             }else{
@@ -36,7 +36,7 @@ public class Filas{
         }
     }
 //Acceder al último elemento
-    Object valorFrente(){
+    T valorFrente(){
         if(this.vacia()){
             system.print.out("Error, la fila esta vacia");
             return null;
@@ -45,13 +45,29 @@ public class Filas{
         }
     }
 //pop
-    Object pop(){
+    T pop(){
         if(this.vacia()){
             system.print.out("Error, la fila esta vacia");
             return null;
         }else{
             this.valorFrente();
             this.dequeue();
+        }
+    }
+//copia
+    Filas<T> copia(){
+        Filas<T> nuevaCopia= new Filas();
+        nuevaCopia.ultimo=original.ultimo;
+        return nuevaCopia;
+    }
+//Lectura completa
+    void lecturaCompleta(){
+        Filas<T> filaDeLectura=this.copia();
+        if(this.vacio()){
+            system.out.println("Su fila esta vacia");
+        }
+        while(filaDeLectura.vacio()==false){
+            system.out.println(""+filaDeLectura.pop());
         }
     }
 //el main
