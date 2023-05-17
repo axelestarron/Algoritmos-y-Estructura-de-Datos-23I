@@ -1,27 +1,61 @@
-package Filas;
+package Pilas;
 import Pilas.Nodo;
-public class Filas<T>{
-    Nodo<T> ultimo;
-    //Constructor vacio
-    public Filas(){
+
+public class Filas{
+    Nodo ultimo=new Nodo();
+//Constructor
+    Fila(){
         ultimo=null;
     }
-    //FilaVacia
-    boolean vacia(){
-        if(ultimo==null){
-            return true;
+//Vacio
+    boolean vacio(){
+        return this.ultimo==null;
+    }
+//Insertar
+    void enqueue(Object nuevoObjeto){
+        if(this.vacio()){
+            this.ultimo=new Nodo(nuevoObjeto,null);
+            this.ultimo.liga=this.ultimo;
+        }
+        else{
+            this.ultimo.liga=new Nodo(nuevoObjeto,this.ultimo.liga);
+            this.ultimo=this.ultimo.liga;
+        }
+    }
+//Borrar
+    void dequeue(){
+        if(this.vacio()){
+            system.print.out("Error, la fila esta vacia");
         }else{
-            return false;
+            Nodo frente=this.ultimo.liga;
+            if(frente==this.ultimo){
+                this.ultimo=null;
+            }else{
+                this.ultimo.liga=frente.liga;
+            }
         }
     }
-    //Primero en la fila
-    public void inQueue(T info){{
+//Acceder al último elemento
+    Object valorFrente(){
         if(this.vacia()){
-            Nodo<T> nuevo=new Nodo<T>(info);
-            
+            system.print.out("Error, la fila esta vacia");
+            return null;
+        }else{
+            return this.ultimo.liga.info;
         }
-
     }
-
+//pop
+    Object pop(){
+        if(this.vacia()){
+            system.print.out("Error, la fila esta vacia");
+            return null;
+        }else{
+            this.valorFrente();
+            this.dequeue();
+        }
     }
-}
+//el main
+    public static void main(String[] arg){
+        
+    }
+} 
