@@ -64,11 +64,11 @@ private Nodo<T> buscaAnterior(T ObjX){
     }
 //El main
     public static void main(String[]arg){
-        ListaDinamica<Integer> milista=new ListaDinamica<Integer>();
-        milista.insertar(5);
-        milista.insertar(1);
-        milista.insertar(2);
-        milista.insertar(6);
+        ListaDinamica<String> milista=new ListaDinamica<String>();
+        milista.insertar("Casa");
+        milista.insertar("Perro");
+        milista.insertar("Aldair");
+        milista.insertar("Batman");
         System.out.println(milista.toString());
     }
 }
