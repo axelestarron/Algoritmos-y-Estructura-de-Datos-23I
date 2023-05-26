@@ -1,10 +1,7 @@
-package Pilas;
-import Pilas.Nodo;
-
 public class Filas<T>{
-    Nodo<T> ultimo=new Nodo();
+    Nodo<T> ultimo;
 //Constructor
-    Fila(){
+    Filas(){
         ultimo=null;
     }
 //Vacio
@@ -14,18 +11,18 @@ public class Filas<T>{
 //Insertar
     void enqueue(T nuevoObjeto){
         if(this.vacio()){
-            this.ultimo=new Nodo(nuevoObjeto,null);
+            this.ultimo=new Nodo<T>(nuevoObjeto,null);
             this.ultimo.liga=this.ultimo;
         }
         else{
-            this.ultimo.liga=new Nodo(nuevoObjeto,this.ultimo.liga);
+            this.ultimo.liga=new Nodo<T>(nuevoObjeto,this.ultimo.liga);
             this.ultimo=this.ultimo.liga;
         }
     }
 //Borrar
     void dequeue(){
         if(this.vacio()){
-            system.print.out("Error, la fila esta vacia");
+            System.out.println("Error, la fila esta vacia");
         }else{
             Nodo<T> frente=this.ultimo.liga;
             if(frente==this.ultimo){
@@ -37,8 +34,8 @@ public class Filas<T>{
     }
 //Acceder al último elemento
     T valorFrente(){
-        if(this.vacia()){
-            system.print.out("Error, la fila esta vacia");
+        if(this.vacio()){
+            System.out.println("Error, la fila esta vacia");
             return null;
         }else{
             return this.ultimo.liga.info;
@@ -46,8 +43,8 @@ public class Filas<T>{
     }
 //pop
     T pop(){
-        if(this.vacia()){
-            system.print.out("Error, la fila esta vacia");
+        if(this.vacio()){
+            System.out.println("Error, la fila esta vacia");
             return null;
         }else{
             this.valorFrente();
@@ -56,18 +53,19 @@ public class Filas<T>{
     }
 //copia
     Filas<T> copia(){
-        Filas<T> nuevaCopia= new Filas();
-        nuevaCopia.ultimo=original.ultimo;
+        Filas<T> nuevaCopia= new Filas<T>();
+        nuevaCopia.ultimo.info=this.ultimo.info;
+        nuevaCopia.ultimo.liga=this.ultimo.liga;
         return nuevaCopia;
     }
 //Lectura completa
     void lecturaCompleta(){
         Filas<T> filaDeLectura=this.copia();
         if(this.vacio()){
-            system.out.println("Su fila esta vacia");
+            System.out.println("Su fila esta vacia");
         }
         while(filaDeLectura.vacio()==false){
-            system.out.println(""+filaDeLectura.pop());
+            System.out.println(""+filaDeLectura.pop());
         }
     }
 //el main
