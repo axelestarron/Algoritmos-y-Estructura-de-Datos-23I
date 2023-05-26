@@ -1,3 +1,6 @@
+package Filas;
+import Pilas.Nodo;
+
 public class Filas<T>{
     Nodo<T> ultimo;
 //Constructor
@@ -47,8 +50,9 @@ public class Filas<T>{
             System.out.println("Error, la fila esta vacia");
             return null;
         }else{
-            this.valorFrente();
+            T result=this.valorFrente();
             this.dequeue();
+            return result;
         }
     }
 //copia
