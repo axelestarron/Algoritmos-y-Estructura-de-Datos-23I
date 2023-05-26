@@ -57,9 +57,8 @@ public class Filas<T>{
     }
 //copia
     Filas<T> copia(){
-        Filas<T> nuevaCopia= new Filas<T>();
-        nuevaCopia.ultimo.info=this.ultimo.info;
-        nuevaCopia.ultimo.liga=this.ultimo.liga;
+        Filas<T> nuevaCopia=new Filas<T>();
+        nuevaCopia.ultimo=this.ultimo;
         return nuevaCopia;
     }
 //Lectura completa
@@ -74,6 +73,13 @@ public class Filas<T>{
     }
 //el main
     public static void main(String[] arg){
-        
+        Filas<String> mifila=new Filas<String>();
+        mifila.enqueue("Primero");
+        mifila.enqueue("Segundo");
+        mifila.enqueue("Tercero");
+        mifila.dequeue();
+        mifila.enqueue("La rosalía");
+        mifila.dequeue();
+        System.out.println(mifila.valorFrente());
     }
 } 
