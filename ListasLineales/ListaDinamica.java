@@ -13,8 +13,8 @@ private Nodo<T> cabeza;
 //Buscar
     private Nodo<T> busca(T ObjX){
         Nodo<T> aux=this.cabeza;
-        while(aux!=null && aux.info.compareTo(ObjX)<0){
-            aux=aux.liga;
+        while(aux!=null && aux.getInfo().compareTo(ObjX)<0){
+            aux=aux.getLiga();
         }
         return aux;
         //el método regresa un nodo cuando el elemento se encuentra dentro de la lista
@@ -23,8 +23,8 @@ private Nodo<T> cabeza;
 //BuscaAnterior
 private Nodo<T> buscaAnterior(T ObjX){
     Nodo<T> aux=cabeza;
-    while(aux.liga!=null && aux.liga.info.compareTo(ObjX)<0){
-        aux=aux.liga;
+    while(aux.getLiga()!=null && aux.getLiga().getInfo().compareTo(ObjX)<0){
+        aux=aux.getLiga();
     }
     return aux;
 }
@@ -37,7 +37,7 @@ private Nodo<T> buscaAnterior(T ObjX){
         else{
             Nodo<T> dir=busca(ObjIn);
             //Si la lista ya contiene el elemento que se va a insertar
-            if(dir!=null && dir.info.equals(ObjIn)){
+            if(dir!=null && dir.getInfo().equals(ObjIn)){
                 System.out.println("Este elemento ya se encuentra en la lista");
             }else{ 
                 //Si el elemento debe de ir en la cabeza
@@ -46,7 +46,7 @@ private Nodo<T> buscaAnterior(T ObjX){
                 }else{
                  //Si el elemento debe de ir en medio o al final de la lista
                     Nodo<T> previo=buscaAnterior(ObjIn);
-                    previo.liga=new Nodo<T>(ObjIn,dir);
+                    previo.setLiga(new Nodo<T>(ObjIn,dir));
                 }
             }    
         }
@@ -54,15 +54,15 @@ private Nodo<T> buscaAnterior(T ObjX){
 //Borrar
     public void borrar(T ObjBorrado){
         Nodo<T> aux=this.busca(ObjBorrado);
-        if(aux==null || !aux.info.equals(ObjBorrado)){
+        if(aux==null || !aux.getInfo().equals(ObjBorrado)){
             System.out.println("Error, el elemento --"+ObjBorrado.toString()+"-- no se encuentra");
         }else if(aux==this.cabeza){
-            cabeza=aux.liga;
+            cabeza=aux.getLiga();
             System.out.println("El elemento --"+ ObjBorrado.toString()+ "-- será borrado");
         }else{
             System.out.println("El elemento --"+ ObjBorrado.toString()+ "-- será borrado");
             Nodo<T> auxAnterior=this.buscaAnterior(ObjBorrado);
-            auxAnterior.liga=aux.liga;
+            auxAnterior.setLiga(aux.getLiga());
         }
     }
 //ToString
@@ -71,10 +71,10 @@ private Nodo<T> buscaAnterior(T ObjX){
         String texto="[";
         Nodo<T> aux=this.cabeza;
         while(aux!=null){
-            texto=texto+" "+aux.info.toString();
-            aux=aux.liga;
+            texto=texto+" "+aux.getInfo().toString();
+            aux=aux.getLiga();
         }
-        texto=texto+"]";
+        texto=texto+" ]";
         return texto;
     }
 //El main
