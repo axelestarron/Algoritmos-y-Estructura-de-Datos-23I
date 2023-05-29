@@ -68,12 +68,13 @@ private Nodo<T> buscaAnterior(T ObjX){
 //ToString
     @Override
     public String toString(){  
-        String texto="";
+        String texto="[";
         Nodo<T> aux=this.cabeza;
         while(aux!=null){
-            texto=texto+" "+aux.info;
+            texto=texto+" "+aux.info.toString();
             aux=aux.liga;
         }
+        texto=texto+"]";
         return texto;
     }
 //El main
