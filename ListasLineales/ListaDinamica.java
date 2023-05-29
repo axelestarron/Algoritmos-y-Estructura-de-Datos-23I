@@ -51,6 +51,20 @@ private Nodo<T> buscaAnterior(T ObjX){
             }    
         }
     }
+//Borrar
+    public void borrar(T ObjBorrado){
+        Nodo<T> aux=this.busca(ObjBorrado);
+        if(aux==null || !aux.info.equals(ObjBorrado)){
+            System.out.println("Error, el elemento --"+ObjBorrado.toString()+"-- no se encuentra");
+        }else if(aux==this.cabeza){
+            cabeza=aux.liga;
+            System.out.println("El elemento --"+ ObjBorrado.toString()+ "-- será borrado");
+        }else{
+            System.out.println("El elemento --"+ ObjBorrado.toString()+ "-- será borrado");
+            Nodo<T> auxAnterior=this.buscaAnterior(ObjBorrado);
+            auxAnterior.liga=aux.liga;
+        }
+    }
 //ToString
     @Override
     public String toString(){  
@@ -69,6 +83,8 @@ private Nodo<T> buscaAnterior(T ObjX){
         milista.insertar("Perro");
         milista.insertar("Aldair");
         milista.insertar("Batman");
+        milista.borrar("Batman");
+        milista.borrar("Patito");
         System.out.println(milista.toString());
     }
 }
