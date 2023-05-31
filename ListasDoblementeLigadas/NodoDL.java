@@ -1,42 +1,42 @@
 package ListasDoblementeLigadas;
 
-public class NodoDL{
-    private Comparable info;
-    private NodoDL ligaIzq,ligaDer;
+public class NodoDL<T>{
+    private T info;
+    private NodoDL<T> ligaIzq,ligaDer;
 //Constructor
-    public NodoDL(Comparable elemento){
+    public NodoDL(T elemento){
         this.info=elemento;
         this.ligaIzq=null;
         this.ligaDer=null;
     }
 //Constructor con ligas
-    public NodoDL(Comparable elemento,NodoDL ligaAnterior,NodoDL ligaSiguiente){
+    public NodoDL(T elemento,NodoDL<T> ligaAnterior,NodoDL<T> ligaSiguiente){
         this.info=elemento;
         this.ligaIzq=ligaAnterior;
         this.ligaDer=ligaSiguiente;
     }
 //Copy
-    public NodoDL copiaDe(){
-        NodoDL copia=new NodoDL(this.getInfo(),this.getLigaIzq(),this.getLigaDer());
+    public NodoDL<T> copiaDe(){
+        NodoDL<T> copia=new NodoDL<T>(this.getInfo(),this.getLigaIzq(),this.getLigaDer());
         return copia;
     }
 //Metodos de servicio
-    public void setInfo(Comparable nuevoDato){
+    public void setInfo(T nuevoDato){
         this.info=nuevoDato;
     }
-    public Comparable getInfo(){
+    public T getInfo(){
         return this.info;
     }
-    public void setLigaIzq(NodoDL nuevaLigaIzq){
+    public void setLigaIzq(NodoDL<T> nuevaLigaIzq){
         this.ligaIzq=nuevaLigaIzq;
     }
-    public NodoDL getLigaIzq(){
+    public NodoDL<T> getLigaIzq(){
         return this.ligaIzq;
     }
-    public void setLigaDer(NodoDL nuevaLigaDer){
+    public void setLigaDer(NodoDL<T> nuevaLigaDer){
         this.ligaDer=nuevaLigaDer;
     }
-    public NodoDL getLigaDer(){
+    public NodoDL<T> getLigaDer(){
         return this.ligaDer;
     }
 //toString
@@ -56,8 +56,8 @@ public class NodoDL{
     }
 //El main
     public static void main(String[] arg){
-        NodoDL miNodo=new NodoDL("pepino");
-        NodoDL otroNodo=new NodoDL("percebes",miNodo,null);
+        NodoDL<String> miNodo=new NodoDL<String>("pepino");
+        NodoDL<String> otroNodo=new NodoDL<String>("percebes",miNodo,null);
         System.out.println(otroNodo.toString());
     }
 }
