@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Recursividad",
+            "request": "launch",
+            "mainClass": "Recursividad",
+            "projectName": "Algoritmos-y-Estructura-de-Datos-23I_de8db715"
+        },
+        {
+            "type": "java",
+            "name": "EjerciciosListasDobleLiga",
+            "request": "launch",
+            "mainClass": "ListasDoblementeLigadas.EjerciciosListasDobleLiga",
+            "projectName": "Algoritmos-y-Estructura-de-Datos-23I_de8db715"
+        },
+        {
+            "type": "java",
+            "name": "ListaDobleLiga",
+            "request": "launch",
+            "mainClass": "ListasDoblementeLigadas.ListaDobleLiga",
+            "projectName": "Algoritmos-y-Estructura-de-Datos-23I_de8db715"
+        },
+        {
+            "type": "java",
             "name": "NodoDL",
             "request": "launch",
             "mainClass": "ListasDoblementeLigadas.NodoDL",
