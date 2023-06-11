@@ -54,10 +54,4 @@ public class NodoDL<T>{
             return "Nodo[Liga anterior: "+this.ligaIzq.getInfo().toString()+"; Info: "+this.info.toString()+"; Liga siguiente: "+this.ligaDer.getInfo().toString()+"]";
         }
     }
-//El main
-    public static void main(String[] arg){
-        NodoDL<String> miNodo=new NodoDL<String>("pepino");
-        NodoDL<String> otroNodo=new NodoDL<String>("percebes",miNodo,null);
-        System.out.println(otroNodo.toString());
-    }
 }

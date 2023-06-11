@@ -1,7 +1,7 @@
 package ListasDoblementeLigadas;
 
 public class ListaDobleLiga<T extends Comparable<T>> {
-    NodoDL<T> cabeza;
+    public NodoDL<T> cabeza;
 //Constructor
     ListaDobleLiga(){
         this.cabeza=null;
@@ -113,18 +113,4 @@ public class ListaDobleLiga<T extends Comparable<T>> {
         texto=texto+" ]";
         return texto;
     }
-//El main
-    public static void main(String[] arg){
-        ListaDobleLiga<String> miLista=new ListaDobleLiga<String>();
-        miLista.insertar("Aldair");
-        miLista.insertar("Bob Esponja");
-        miLista.insertar("Barco");
-        miLista.insertar("Don Cangrejo");
-        miLista.insertar("Naomi");
-        ListaDobleLiga<String> copia=miLista.copia();
-        copia.borrar("Barco");
-        System.out.println(miLista.toString());
-        System.out.println(copia.toString());
-    }
-
 }
