@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "ListasDoblementeLigadas.App",
+            "projectName": "Algoritmos-y-Estructura-de-Datos-23I_de8db715"
+        },
+        {
+            "type": "java",
             "name": "Recursividad",
             "request": "launch",
             "mainClass": "Principal.Recursividad",
