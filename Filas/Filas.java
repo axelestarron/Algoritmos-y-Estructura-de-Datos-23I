@@ -4,15 +4,15 @@ import Pilas.Nodo;
 public class Filas<T>{
     Nodo<T> ultimo;
 //Constructor
-    Filas(){
+    public Filas(){
         ultimo=null;
     }
 //Vacio
-    boolean vacio(){
+    public boolean vacio(){
         return this.ultimo==null;
     }
 //Insertar
-    void enqueue(T nuevoObjeto){
+    public void enqueue(T nuevoObjeto){
         if(this.vacio()){
             this.ultimo=new Nodo<T>(nuevoObjeto,null);
             this.ultimo.liga=this.ultimo;
@@ -23,7 +23,7 @@ public class Filas<T>{
         }
     }
 //Borrar
-    void dequeue(){
+    public void dequeue(){
         if(this.vacio()){
             System.out.println("Error, la fila esta vacia");
         }else{
@@ -62,14 +62,18 @@ public class Filas<T>{
         return nuevaCopia;
     }
 //Lectura completa
-    void lecturaCompleta(){
+    public void lecturaCompleta(){
         Filas<T> filaDeLectura=this.copia();
         if(this.vacio()){
             System.out.println("Su fila esta vacia");
+        }else{
+            System.out.print("["+filaDeLectura.pop().toString());
+            while(filaDeLectura.vacio()==false){
+                System.out.print(", "+filaDeLectura.pop().toString());
+            }
+            System.out.println("]");
         }
-        while(filaDeLectura.vacio()==false){
-            System.out.println(""+filaDeLectura.pop());
-        }
+        
     }
 //el main
     public static void main(String[] arg){
@@ -77,9 +81,8 @@ public class Filas<T>{
         mifila.enqueue("Primero");
         mifila.enqueue("Segundo");
         mifila.enqueue("Tercero");
-        mifila.dequeue();
         mifila.enqueue("La rosalía");
-        mifila.dequeue();
         System.out.println(mifila.valorFrente());
+        mifila.lecturaCompleta();
     }
 } 
