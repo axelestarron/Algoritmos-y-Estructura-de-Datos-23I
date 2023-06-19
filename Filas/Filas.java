@@ -45,7 +45,7 @@ public class Filas<T>{
         }
     }
 //pop
-    T pop(){
+    public T pop(){
         if(this.vacio()){
             System.out.println("Error, la fila esta vacia");
             return null;

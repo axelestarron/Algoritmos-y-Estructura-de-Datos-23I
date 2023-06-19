@@ -52,14 +52,56 @@ public class ABB<T extends Comparable <T>> {
         this.previo(arbolRecorrido,this.raiz);
         arbolRecorrido.lecturaCompleta();
     }
+    //Recorrido en inorden
+    private void sincrono(Filas<T> cola,NodoArbol<T> raizDeRecorrido){
+        if(raizDeRecorrido!=null){
+            this.sincrono(cola, raizDeRecorrido.getHijoIzq());
+            cola.enqueue(raizDeRecorrido.getInfo());
+            this.sincrono(cola, raizDeRecorrido.getHijoDer());
+        }
+    }
+    public void recorridoInorden(){
+        Filas<T> arbolRecorrido=new Filas<T>();
+        this.sincrono(arbolRecorrido,this.raiz);
+        arbolRecorrido.lecturaCompleta();
+    }
+    //Recorrido en preorden
+    private void posterior(Filas<T> cola,NodoArbol<T> raizDeRecorrido){
+        if(raizDeRecorrido!=null){
+            this.posterior(cola, raizDeRecorrido.getHijoIzq());
+            this.posterior(cola, raizDeRecorrido.getHijoDer());
+            cola.enqueue(raizDeRecorrido.getInfo());
+        }
+    }
+    public void recorridoPosorden(){
+        Filas<T> arbolRecorrido=new Filas<T>();
+        this.posterior(arbolRecorrido,this.raiz);
+        arbolRecorrido.lecturaCompleta();
+    }
+    //Recorrido por niveles
+    public void recorridoNiveles(){
+        Filas<T> arbolRecorrido=new Filas<T>();
+        Filas<NodoArbol<T>> tempQueue=new Filas<NodoArbol<T>>();
+        NodoArbol<T> tempNodo=new NodoArbol<T>(null);
+        tempQueue.enqueue(this.raiz);
+        while(!tempQueue.vacio()){
+            tempNodo=tempQueue.pop();
+            arbolRecorrido.enqueue(tempNodo.getInfo());
+            if(tempNodo.getHijoIzq()!=null) tempQueue.enqueue(tempNodo.getHijoIzq());
+            if(tempNodo.getHijoDer()!=null) tempQueue.enqueue(tempNodo.getHijoDer());
+        }
+        arbolRecorrido.lecturaCompleta();
+    }
     //el main
     public static void main(String[]arg){
         ABB<Integer> miArbol=new ABB<Integer>();
-        int[] miArray={6,14,4,7,8,12,3,1,2,10};
+        int[] miArray={50,17,72,12,23,54,76,9,14,19,67};
         for(int i=0;i<miArray.length;i++){
             miArbol.insertaEnArbol(miArray[i]);
         }
         miArbol.recorridoPreorden();
-        System.out.println(miArbol.raiz.getHijoDer().getInfo().toString());
+        miArbol.recorridoInorden();
+        miArbol.recorridoPosorden();
+        miArbol.recorridoNiveles();
     }
 }
