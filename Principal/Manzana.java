@@ -1,11 +1,11 @@
-package Arboles;
+package Principal;
 
 public class Manzana implements Comparable<Manzana>{
     private String variedad;
     private String color;
     private int peso;
 
-    Manzana (String v, String c, int p){
+    public Manzana (String v, String c, int p){
         this.variedad=v;
         this.color=c;
         this.peso=p;
