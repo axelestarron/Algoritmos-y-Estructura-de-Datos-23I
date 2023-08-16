@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Palindrome",
+            "request": "launch",
+            "mainClass": "Palindrome",
+            "projectName": "Algoritmos-y-Estructura-de-Datos-23I_de8db715"
+        },
+        {
+            "type": "java",
             "name": "ABB",
             "request": "launch",
             "mainClass": "Arboles.ABB",
