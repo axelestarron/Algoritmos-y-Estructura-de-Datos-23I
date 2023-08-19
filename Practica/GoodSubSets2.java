@@ -93,7 +93,7 @@ public class GoodSubSets2 {
         int[][] combinations=new int[compoundCount][];
         int combinationsIndex=0;
         //First cycle goes through all compound numbers
-        for(int i=0;i<compoundCount;i++){
+        for(int i=0;i<compoundNums.length;i++){
             //The index i represents the compound for a given set
             if(compoundNums[i]==1){
                 int[] primeFactorization=primeFacArrayGen(i);
@@ -119,10 +119,10 @@ public class GoodSubSets2 {
                 combinationsIndex++;
             } 
         }
-
-        for(int i=0;i<combinationsIndex;i++){
-                System.out.println(toString(combinations[i]));
+        for(int i=0;i<compoundCount;i++){
+            System.out.println(toString(combinations[i]));
         }
+        
 
         System.out.println(toString(numberCounter));
         System.out.println(toString(compoundNums)+" "+compoundCount);
