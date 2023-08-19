@@ -98,7 +98,8 @@ public class GoodSubSets2 {
             if(compoundNums[i]==1){
                 int[] primeFactorization=primeFacArrayGen(i);
                 int[] combArrays=zeroesArrayGen(numberCounter.length);
-                int combArraysIndex=0;
+                combArrays[0]=i;
+                int combArraysIndex=1;
                 //For a given compound, we check to see which numbers are coprime to it
                     for(int j=0;j<numberCounter.length;j++){
                         //The j index represents each number checked
@@ -130,7 +131,7 @@ public class GoodSubSets2 {
     }
     
     public static void main(String[] args){
-        int[] a={3,4,4,4,4,4,5,7,6,9,11,13,13,17,21};
+        int[] a={3,4,4,4,4,4,5,7,6,9,10,11,13,13,17,21};
         squareFreeSubsets(a);
         System.out.println(toString(primeFacArrayGen(21)));
     }
