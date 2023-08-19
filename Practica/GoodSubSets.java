@@ -1,4 +1,14 @@
 class GoodSubSets {
+    //Method for obtaining the factorial of a number
+    public static int factorial(int n){
+        int fact=1;
+        if(n<=1) return fact;
+        for(int i=1;i<=n;i++){
+            fact=fact*i;
+        }
+        return fact;
+    }
+    //Method for obtaining x^p
     public static int power(int x, int p) {
         int power = 1;
         for (int i = 0; i < p; i++) {
@@ -6,6 +16,65 @@ class GoodSubSets {
         }
         return power;
     }
+    //Method for obtaining the combinations from pool choose size (e.g. 5 choose 3)
+    public static int combinationNumber(int pool, int size){
+        if(pool>=size){
+            return factorial(pool)/(factorial(size)*factorial(pool-size));
+        }else{
+            System.out.println("Choose appropiate values for pool and size");
+            return 0;
+        }
+    }
+    //Method for determining which combination comes next
+    public static void rightmostReplaceble(int arraySize, int[] flagArray){
+        int diff=0;
+        for(int i=0;i<flagArray.length;i++){
+            if(i==0) System.out.println(toString(flagArray));
+            if(flagArray[flagArray.length-1]!=arraySize-1 && i==0){
+                flagArray[flagArray.length-1]++;
+            }else if(flagArray[1]==arraySize-flagArray.length+1){
+                flagArray[0]++;
+                for(int j=1;j<flagArray.length;j++){
+                    flagArray[j]=flagArray[0]+j;
+                }
+            }else{
+                if(i<flagArray.length-2){
+                    diff=flagArray[flagArray.length-1-i]-flagArray[flagArray.length-2-i];
+                    if(diff!=1) flagArray[flagArray.length-2-i]++;
+                }
+            }
+        }
+    }
+    public static String toString(int[] myArray) {
+        String result = new String("{" + myArray[0]);
+        for (int i = 1; i < myArray.length; i++) {
+            result = result.concat("," + myArray[i]);
+        }
+        result = result.concat("}");
+        return result;
+    }
+
+    //Method for obtaining the combinations of size r from a list of numbers
+    public static Object[] combinations(int[] pool,int r){
+        int size=combinationNumber(pool.length,r);
+        Object[] combinationArray=new Object[size];
+        int[] combPos=new int[r];
+        for(int i=0;i<r;i++){
+            combPos[i]=i;
+        }
+        int[] temp=new int[r];
+        for(int i=0;i<size;i++){
+            for(int k=0;k<r;k++){
+
+            }
+            for(int j=0;j<r;j++){
+                temp[j]=pool[combPos[j]];
+            }
+            combinationArray[i]=temp;
+        }
+        return combinationArray;
+    }
+    
 
     public static int squareFreeSubsets(int[] nums) {
         // We generate arrays that list which numbers are divisible by different factors
@@ -81,8 +150,15 @@ class GoodSubSets {
     }
 
     public static void main(String[] args) {
-        int[] a = {8, 11, 17, 2, 25, 29, 21, 20, 4, 22};
+        //int[] a = {8, 11, 17, 2, 25, 29, 21, 20, 4, 22};
         //11,17,2,29,21,22
-        System.out.println("The answer is: "+squareFreeSubsets(a));
+        //System.out.println("The answer is: "+squareFreeSubsets(a));
+        //System.out.println(factorial(5));
+        //System.out.println(combinationNumber(5, 1));
+        int[] a={0,1,2};
+        for(int i=0;i<11;i++){
+            rightmostReplaceble(5, a);
+        }
+
     }
 }
