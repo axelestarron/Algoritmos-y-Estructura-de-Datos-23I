@@ -16,6 +16,17 @@ public class GoodSubSets2 {
         }
         return newArray;
     }
+    //Binary increment
+    public static void binaryIncrement(int[] binNum,int incrementIndex){
+        binNum[incrementIndex]++;
+        if(binNum[incrementIndex]>1){
+            binNum[incrementIndex]=0;
+            if(incrementIndex<binNum.length-1){
+                binaryIncrement(binNum, incrementIndex+1);
+            }
+        }
+    }
+    
     //toString method for arrays
     public static String toString(int[] myArray) {
         String result = new String("{" + myArray[0]);
@@ -131,8 +142,14 @@ public class GoodSubSets2 {
     }
     
     public static void main(String[] args){
-        int[] a={3,4,4,4,4,4,5,7,6,9,10,11,13,13,17,21};
-        squareFreeSubsets(a);
+        //int[] a={3,4,4,4,4,4,5,7,6,9,10,11,13,13,17,21};
+        //squareFreeSubsets(a);
+        int[] b=zeroesArrayGen(4);
+        for(int i=0;i<16;i++){
+            binaryIncrement(b, 0);
+            System.out.println(toString(b));
+        }
+        
         System.out.println(toString(primeFacArrayGen(21)));
     }
 }
