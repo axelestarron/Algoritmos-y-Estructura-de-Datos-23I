@@ -1,3 +1,11 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
 public class IBM {
     public static void dec2bin(int a){
         int copyOfa=a;
@@ -42,9 +50,52 @@ public class IBM {
             }
         }
     }
+
+    public static List<Integer> subsetA(List<Integer> arr) {
+        // Write your code here
+            Collections.sort(arr);
+            int subSize=1; int accumA; int accumB;
+            boolean correctSize=false; boolean AbiggerB;
+            while(!correctSize){
+                accumA=0;
+                for(int i=0; i<subSize; i++){
+                    accumA+=arr.get(arr.size()-1-i);
+                    System.out.println(accumA);
+                }
+                AbiggerB=true;
+                accumB=0; int Bindex=arr.size()-subSize-1;
+                while((AbiggerB)&&(Bindex>-1)){
+                    accumB+=arr.get(Bindex);
+                    System.out.println(accumB+" hola");
+                    Bindex--;
+                    AbiggerB=(accumA>accumB);
+                }
+                correctSize=(Bindex==-1);
+                subSize++;
+            }
+            List<Integer> result=new ArrayList<Integer>();
+            for(int i=0;i<subSize; i++){
+                result.add(arr.get(arr.size()-1-i));
+            }
+            return result;
+        }
     
     public static void main(String[] args){
         //IBM.dec2bin(10);
-        IBM.fibonacciTri(7);
+        //IBM.fibonacciTri(7);
+        int[] myArray={6,5,4,2,3,2,1};
+        List<Integer> myList=new ArrayList<Integer>();
+        for(int i=0;i<myArray.length;i++){
+            myList.add(myArray[i]);
+        }
+        Collections.sort(myList);
+        for(int i=0;i<myList.size();i++){
+            System.out.println(myList.get(myList.size()-1-i));
+        }
+        System.out.println("");
+        for(int i=0;i<myList.size();i++){
+            System.out.println(myList.get(i));
+        }
+
     }
 }
