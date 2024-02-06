@@ -2,7 +2,7 @@ package modelo;
 
 import java.io.Serializable;
 
-class DatosAcad {
+class DatosAcad implements Serializable {
     private String nivel, instit, ciudad, pais;
     private int mesInicio, anioInicio, mesFin, anioFin;
 

@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CVpersona",
+            "request": "launch",
+            "mainClass": "modelo.CVpersona",
+            "projectName": "Algoritmos-y-Estructura-de-Datos-23I_de8db715"
+        },
+        {
+            "type": "java",
+            "name": "Serializador",
+            "request": "launch",
+            "mainClass": "modelo.Serializador",
+            "projectName": "Algoritmos-y-Estructura-de-Datos-23I_de8db715"
+        },
+        {
+            "type": "java",
+            "name": "CVmanager",
+            "request": "launch",
+            "mainClass": "modelo.CVmanager",
+            "projectName": "Algoritmos-y-Estructura-de-Datos-23I_de8db715"
+        },
+        {
+            "type": "java",
             "name": "IBM",
             "request": "launch",
             "mainClass": "IBM",
