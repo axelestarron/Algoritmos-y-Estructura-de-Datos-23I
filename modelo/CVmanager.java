@@ -50,7 +50,7 @@ public class CVmanager {
         }
     }
 
-    //permite determinar si el usuario existe
+    //permite determinar si el usuario existe o no
     public boolean isThereUser(String userName){
         return Files.exists(Paths.get(userName));
     }
