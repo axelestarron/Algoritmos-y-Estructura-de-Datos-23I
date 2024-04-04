@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "com.csvtestproject.Main",
+            "projectName": "demoname"
+        },
+        {
+            "type": "java",
             "name": "CVpersona",
             "request": "launch",
             "mainClass": "modelo.CVpersona",
